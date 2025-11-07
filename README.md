@@ -1,59 +1,59 @@
-OrangeHRM Admin Module Automation (Playwright + Python)
+# OrangeHRM Admin Module Automation (Playwright + Python)
+
 This project contains automated end-to-end tests for the Admin User Management module of the OrangeHRM demo site.
 
-The tests are written in Python using Playwright and Pytest. They follow the Page Object Model (POM) design pattern.
+The tests are written in **Python** using **Playwright** and **Pytest**. They follow the Page Object Model (POM) design pattern.
 
-Scenarios Covered
+##  scenarios Covered
+
 The test suite covers the full life cycle of a user:
 
-Login: The test logs in as an Admin user.
+* **Login:** The test logs in as an Admin user.
+* **Add User:** Creates a new user with a unique username.
+* **Search User:** Searches for the newly created user to verify it exists.
+* **Edit User:** Edits the user's role and status.
+* **Validate Update:** Searches for the user again to validate that the changes were saved.
+* **Delete User:** Deletes the user to clean up the environment.
 
-Add User: Creates a new user with a unique username.
+## Project Setup
 
-Search User: Searches for the newly created user to verify it exists.
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repository-url>
+    cd AccuKnox-user-management-tests
+    ```
 
-Edit User: Edits the user's role and status.
+2.  **Create and activate a virtual environment:**
 
-Validate Update: Searches for the user again to validate that the changes were saved.
+    * **On macOS/Linux:**
+        ```bash
+        python3 -m venv venv
+        source venv/bin/activate
+        ```
 
-Delete User: Deletes the user to clean up the environment.
+    * **On Windows:**
+        ```bash
+        python -m venv venv
+        .\venv\Scripts\activate
+        ```
 
-Project Setup
-Clone the repository:
+3.  **Install dependencies:**
+    Install all the required Python packages from the `requirements.txt` file.
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Bash
-git clone <your-repository-url>
-cd AccuKnox-user-management-tests
-Create and activate a virtual environment:
+4.  **Install Playwright browsers:**
+    This one-time command downloads the browsers (Chromium, Firefox, WebKit) needed for Playwright.
+    ```bash
+    playwright install
+    ```
 
-On macOS/Linux:
+## How to Run the Test Cases
 
-Bash
-python3 -m venv venv
-source venv/bin/activate
-On Windows:
-
-Bash
-python -m venv venv
-.\venv\Scripts\activate
-Install dependencies: Install all the required Python packages from the requirements.txt file.
-
-Bash
-pip install -r requirements.txt
-Install Playwright browsers: This one-time command downloads the browsers (Chromium, Firefox, WebKit) needed for Playwright.
-
-Bash
-playwright install
-How to Run the Test Cases
-All tests are managed and run using pytest.
+All tests are managed and run using `pytest`.
 
 To run the full test suite in order (Add -> Search -> Edit -> Validate -> Delete), simply run the following command in your terminal:
 
-Bash
+```bash
 pytest -s -v
--s: This flag allows the print statements (e.g., "✅ User created...") to be displayed in the terminal.
-
--v: This flag (verbose) provides more detailed output for each test.
-
-Playwright Version Used
-Playwright Version: 1.52.0
